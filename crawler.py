@@ -76,7 +76,7 @@ class PttSpider:
         max_page = self.get_max_page(self._soup.select('.btn.wide')[1]['href'])
         return (
             '{}/{}/{}/index{}.html'.format(self.ptt_head, self.ptt_middle, self._board, page)
-            for page in range(max_page - self.parser_page + 1, max_page + 1, 1)
+            for page in range(max_page - self.parser_page + 1, max_page + 1, 1) if page >= 0
         )
 
     def parser_per_article_url(self):
